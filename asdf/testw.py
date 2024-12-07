@@ -3,7 +3,7 @@ import time
 import take_a_photo
 
 # 아두이노와 연결된 포트 설정 (예: 'COM5', '/dev/ttyUSB0' 등)
-ser = serial.Serial('COM5', 1000000)  # 아두이노가 연결된 포트로 바꿔주세요
+ser = serial.Serial('COM3', 9600)  # 아두이노가 연결된 포트로 바꿔주세요
 
 while True:
     if ser.in_waiting > 0:  # 시리얼 데이터가 있을 때
