@@ -13,7 +13,7 @@ try:
                 print(f"버튼 상태: {data}")
                 if data == "on":
                     print("image_classify.py 를 실행합니다.")
-                    subprocess.run(["python", "./donttouch/image_classify.py"], check=True)
+                    subprocess.run(["python", "image_classify.py"], check=True)
 
 except serial.SerialException as e:
     print(f"시리얼 포트를 열 수 없습니다: {e}")

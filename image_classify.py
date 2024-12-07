@@ -12,13 +12,12 @@ model, preprocess = clip.load('ViT-B/32', device)
 
 
 # 2. Logistic Regression 모델 불러오기
-classifier = joblib.load('./donttouch/model.pkl')
+classifier = joblib.load('model.pkl')
 
 
 # 3. 단일 이미지 불러오기
-image_path = "./donttouch/received_image.png"
-image = Image.open(image_path)
-
+image_path = "received_image.png"
+image = Image.open(image_path).convert("RGB")
 
 # 4. 이미지 전처리
 preprocess = transforms.Compose([
@@ -38,12 +37,7 @@ with torch.no_grad():
 # 6. Logistic Regression 모델을 사용하여 예측
 prediction = classifier.predict(image_features)
 
-
-# 7. 분류 결과 출력
-# 예시로 train 데이터셋에서 카테고리 목록을 가져옴
-data_dir = r""
-train = ImageFolder(os.path.join(data_dir, 'train'), transform=preprocess)
-categories = train.classes
+categories = ["binils", "cans", "other_ps", "p_bowls", "pets"]
 
 
 # 예측된 카테고리 출력
