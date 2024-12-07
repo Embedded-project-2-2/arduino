@@ -12,11 +12,11 @@ model, preprocess = clip.load('ViT-B/32', device)
 
 
 # 2. Logistic Regression 모델 불러오기
-classifier = joblib.load('model.pkl')
+classifier = joblib.load('./donttouch/model.pkl')
 
 
 # 3. 단일 이미지 불러오기
-image_path = "분류할 이미지 파일의 경로를 여기에"
+image_path = "./donttouch/received_image.png"
 image = Image.open(image_path)
 
 
