@@ -26,3 +26,4 @@ except KeyboardInterrupt:
     print("Program stopped by user.")
 finally:
     arduino.close()
+    
