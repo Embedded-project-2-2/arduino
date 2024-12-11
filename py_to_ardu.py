@@ -2,7 +2,7 @@ import serial
 import time
 import random
 
-arduino_port = 'COM3'  # 아두이노 연결 포트 확인
+arduino_port = 'COM8'  # 아두이노 연결 포트 확인
 baud_rate = 9600  # 아두이노와 동일한 Baud Rate
 arduino = serial.Serial(arduino_port, baud_rate, timeout=1)
 time.sleep(2)  # 연결 안정화 대기

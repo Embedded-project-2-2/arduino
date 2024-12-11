@@ -1,7 +1,8 @@
 import serial
 import subprocess
+import image_classify
 
-port = 'COM3'
+port = 'COM8'
 baud_rate = 9600
 
 try:
@@ -12,8 +13,9 @@ try:
                 data = ser.readline().decode('utf-8').strip()
                 print(f"버튼 상태: {data}")
                 if data == "on":
-                    print("image_classify.py 를 실행합니다.")
-                    subprocess.run(["python", "image_classify.py"], check=True)
+                    #subprocess.call(['libcamera-still', '-o', '/capture.jpg', '--shutter', '5000'], capture_output = True, text = True)
+                    predict_result = image_classify.imgage()
+                    print(predict_result)
 
 except serial.SerialException as e:
     print(f"시리얼 포트를 열 수 없습니다: {e}")
