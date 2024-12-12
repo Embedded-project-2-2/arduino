@@ -18,7 +18,7 @@ def imgage():
 
 
     # 3. 단일 이미지 불러오기
-    image_path = "received_image.png"
+    image_path = "test.jpg"
     image = Image.open(image_path).convert("RGB")
 
     # 4. 이미지 전처리
@@ -39,19 +39,27 @@ def imgage():
     # 6. Logistic Regression 모델을 사용하여 예측
     prediction = classifier.predict(image_features)
 
-    categories = ["binils", "cans", "other_ps", "p_bowls", "pets"]
+    categories = ["binils", "cans", "glass", "other_ps", "p_bowls", "pets"]
 
 
     # 예측된 카테고리 출력
     predicted_category = categories[prediction[0]]  # 예측된 레이블로 카테고리 이름 가져오기
     print(f"해당 이미지는 '{predicted_category}' 카테고리로 분류되었습니다.")
 
-    result = {
-        "binils": "1",
-        "cans": "2",
-        "other_ps": "3",
-        "p_bowls": "3",
-        "pets": "3"
-    }
-    return result[predicted_category]
+
+    if predicted_category == 'binils':
+        result = "1"
+    elif predicted_category == 'cans':
+        result = "2"
+    else:
+        result = "3"
+    # result = {
+    #     "binils": "1",
+    #     "cans": "2",
+    #     "other_ps": "3",
+    #     "p_bowls": "3",
+    #     "pets": "3"
+    # }
+    return result
+    #return result[predicted_category]
 
